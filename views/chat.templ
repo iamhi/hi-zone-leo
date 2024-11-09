@@ -1,0 +1,135 @@
+package views
+
+import "github.com/iamhi/leo/views/components"
+
+type messageType struct {
+	role    string
+	content string
+}
+
+var messages = []messageType{
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+	{
+		role:    "system",
+		content: "Prepare to serve the user with the functions: get notes, edit note, create note, delete note",
+	},
+	{
+		role:    "user",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "assistant",
+		content: "Hey I have a question for you!",
+	},
+	{
+		role:    "user",
+		content: "Why is the sky blue?",
+	},
+}
+
+templ ChatContent() {
+	<section class="message-list-container">
+		for _, message := range messages {
+			<div class={ "message-container" , templ.KV("message-container--user-message", message.role=="user" ) }>
+				<div class={ "message" , templ.KV("message--user-message", message.role=="user" ) }>
+					<div class="message__content">
+						{ message.content }
+					</div>
+					<div class="message__role">
+						{ message.role }
+					</div>
+				</div>
+			</div>
+		}
+	</section>
+	<section class="message-input-container">
+		User input goes here
+	</section>
+}
+
+templ ChatPage() {
+	<div class="chat-content" hx-get="/hi-zone-api/leo/ui/components/chat" hx-trigger="load"></div>
+}
+
+templ Chat() {
+	@Base(components.GenerateNavBarItems("chat"), ChatPage(), EmptyScripts())
+}

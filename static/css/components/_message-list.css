@@ -1,0 +1,26 @@
+.message-list-container {
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+	gap: 1em;
+	height: 100%;
+	overflow: scroll;
+}
+
+.message-container {
+	display: flex;
+}
+
+.message-container--user-message {
+	justify-content: end;
+}
+
+.message {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	padding: 1em;
+	background-color: cadetblue;
+	border-radius: 0.8em;
+	max-width: 70%;
+}

@@ -1,0 +1,33 @@
+.navbar {
+	width: 100%;
+	background-color: lightcyan;
+	display: flex;
+}
+
+.navbar__list {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
+
+.navbar__list__item {
+	padding: 1em;
+	display: flex;
+	color: var(--primary-color-4) !important;
+}
+
+.navbar__list__item--selected {
+	border-radius: 0.8em;
+	color: var(--primary-color-1) !important;
+	background-color: var(--primary-color-4);
+	border-bottom-color: var(--secondary-color-2);
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+}
+
+.navbar__list__item__link {
+	text-decoration: none;
+	cursor: pointer;
+	color: inherit;
+}

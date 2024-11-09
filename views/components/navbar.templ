@@ -1,0 +1,50 @@
+package components
+
+type NavBarItem struct {
+	Id       string
+	Label    string
+	Link     string
+	Selected bool
+}
+
+var base_navbar_items = []NavBarItem{
+	{
+		Id:    "home",
+		Label: "Home",
+		Link:  "/hi-zone-api/leo/ui",
+	},
+	{
+		Id:    "chat",
+		Label: "Chat",
+		Link:  "/hi-zone-api/leo/ui/chat",
+	},
+}
+
+func GenerateNavBarItems(selected_id string) []NavBarItem {
+	result := make([]NavBarItem, 0)
+
+	for _, item := range base_navbar_items {
+		result = append(result, NavBarItem{
+			Id:       item.Id,
+			Label:    item.Label,
+			Link:     item.Link,
+			Selected: item.Id == selected_id,
+		})
+	}
+
+	return result
+}
+
+templ NavBar(items []NavBarItem) {
+	<nav class="navbar">
+		<ul class="navbar__list">
+			for _, item := range items {
+				<li class={ "navbar__list__item" , templ.KV("navbar__list__item--selected", item.Selected) }>
+					<a href={ templ.SafeURL(item.Link) } class="navbar__list__item__link">
+						{ item.Label }
+					</a>
+				</li>
+			}
+		</ul>
+	</nav>
+}

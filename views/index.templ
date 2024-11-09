@@ -1,0 +1,20 @@
+package views
+
+import "github.com/iamhi/leo/views/components"
+
+templ content() {
+	<nav class="flex w-full border border-b-zinc-200 px-4 py-4">
+		<h3 class="text-base lg:text-lg font-medium text-center">
+			Leo's headquarters
+		</h3>
+	</nav>
+	<div class="mt-6 w-full flex justify-center items-center flex-col">
+		<section class="border-t border-t-zinc-200 mt-6 px-2 py-4 w-96">
+			<p>This is like a body?</p>
+		</section>
+	</div>
+}
+
+templ Index() {
+	@Base(components.GenerateNavBarItems("home"), content(), EmptyScripts())
+}

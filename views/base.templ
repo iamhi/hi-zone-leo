@@ -1,0 +1,23 @@
+package views
+
+import "github.com/iamhi/leo/views/components"
+
+templ Base(navbar_items []components.NavBarItem, content templ.Component, scripts templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		@components.Header()
+		<body>
+			@components.NavBar(navbar_items)
+			<main class="main">
+				@content
+			</main>
+		</body>
+		@components.Footer()
+		@scripts
+	</html>
+}
+
+templ EmptyScripts() {
+	<script>
+</script>
+}
